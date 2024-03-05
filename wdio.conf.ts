@@ -14,7 +14,7 @@ export const config: Options.Testrunner = {
             transpileOnly: true
         }
     },
-    
+
     port: 4723,
     //
     // ==================
@@ -61,17 +61,17 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-            // capabilities for local Appium web tests on an Android Emulator
-            platformName: 'Android',
-            // browserName: 'Chrome',
-            'appium:deviceName': 'Android_1',
-            'appium:automationName': 'UiAutomator2', 
-            // From root go to this path so always come to this
-            // Ex: /Users/testvagrant/Desktop/Better/WDIO/app/android/MyDemoApp.apk
-            'appium:app': path.join(process.cwd(), './apps/android/ul-shopify.apk'),
-            // 'appium:noReset': true
-            // 'appium:fullReset': true
-        }],
+        // capabilities for local Appium web tests on an Android Emulator
+        platformName: 'Android',
+        // browserName: 'Chrome',
+        'appium:deviceName': 'emulator-5554',
+        'appium:automationName': 'UiAutomator2',
+        // From root go to this path so always come to this
+        // Ex: /Users/testvagrant/Desktop/Better/WDIO/app/android/MyDemoApp.apk
+        'appium:app': path.join(process.cwd(), './apps/android/ul-shopify.apk'),
+        // 'appium:noReset': true
+        // 'appium:fullReset': true
+    }],
 
     //
     // ===================
@@ -129,7 +129,7 @@ export const config: Options.Testrunner = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -143,7 +143,7 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: [['allure', { outputDir: 'allure-results' }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

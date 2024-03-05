@@ -29,7 +29,8 @@ describe('Login', () => {
         await profileScreen.goToLoginscreen();
         await loginScreen.enterCredentials(data.username, data.password);
         await loginScreen.clickOnLoginButton();
-        await otpScreen.enterOtpAndVerify(data.otp);
+        await otpScreen.enterOtp(data.otp);
+        await otpScreen.clickOnVerifyButton();
 
         const userName = await homeScreen.getUserNameInTitle();
         expect(userName).to.equal("Jack Sparrow");
@@ -40,7 +41,9 @@ describe('Login', () => {
         await homeScreen.navigateToProfile();
         await profileScreen.goToRegisterScreen();
         await registerScreen.enterDetailsForRegister(data.username, data.email, data.password, data.mobilenumber);
-        await otpScreen.enterOtpAndVerify(data.otp);
+        await registerScreen.clickOnRegisterButton();
+        await otpScreen.enterOtp(data.otp);
+        await otpScreen.clickOnVerifyButton();
         const popUpMsg = await homeScreen.getPopUpMessage();
         expect(popUpMsg).to.equal("Registration is successful");
         await homeScreen.closePopUp();

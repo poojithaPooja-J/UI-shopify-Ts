@@ -10,7 +10,7 @@ export class OtpScreen extends BaseScreen {
 
     }
 
-    async enterOtpAndVerify(value: string) {
+    async enterOtp(value: string) {
         await this.setValue(this.locators.otpButton1, value.charAt(0));
         await this.setValue(this.locators.otpButton2, value.charAt(1));
         await this.setValue(this.locators.otpButton3, value.charAt(2));
