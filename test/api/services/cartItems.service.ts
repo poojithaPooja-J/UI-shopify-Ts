@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CartItemsRequestBody } from "../models/request/cartItems.request";
 import { BaseService } from "./base.service";
-import { CartItemsResponseBody } from "../models/response/cart/addedcartItems.response";
+import { CartItem } from "../models/response/cart/addedcartItems.response";
 import { SetStatusResponse } from "../models/response/setStatus.response";
 
 export class CartItemsService extends BaseService {
@@ -14,7 +14,7 @@ export class CartItemsService extends BaseService {
 
         const response = await axios.post(url, body, config);
 
-        const addedItems: CartItemsResponseBody = response.data;
+        const addedItems: CartItem = response.data;
         new SetStatusResponse().set(addedItems, response);
 
         return addedItems;
@@ -28,7 +28,7 @@ export class CartItemsService extends BaseService {
 
 
         const response = await axios.put(url, body, config);
-        const updatedItems: CartItemsResponseBody = response.data;
+        const updatedItems: CartItem = response.data;
         new SetStatusResponse().set(updatedItems, response);
 
         return updatedItems;

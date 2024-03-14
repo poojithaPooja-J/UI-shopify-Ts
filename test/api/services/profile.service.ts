@@ -28,10 +28,10 @@ export class ProfileService extends BaseService {
         }
         const response = await axios.patch(url, body, config);
 
-        const profile: UpdateProfileResponseBody = response.data;
-        new SetStatusResponse().set(profile, response);
+        const updatedProfile: UpdateProfileResponseBody = response.data;
+        new SetStatusResponse().set(updatedProfile, response);
 
-        return profile;
+        return updatedProfile;
 
     }
 }
