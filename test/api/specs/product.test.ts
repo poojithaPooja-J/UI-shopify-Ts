@@ -13,7 +13,7 @@ let authService: AuthService;
 let productService: ProductService;
 let access_token: string;
 
-describe("SignUp and Login", () => {
+describe("Product", () => {
     before(async () => {
         randomUtil = new RandomUtil();
         authService = new AuthService();
