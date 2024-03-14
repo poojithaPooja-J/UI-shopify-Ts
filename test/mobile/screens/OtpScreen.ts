@@ -7,6 +7,7 @@ export class OtpScreen extends BaseScreen {
         otpButton2: "#inp-opt-2",
         otpButton3: "#inp-opt-3",
         otpButton4: "#inp-opt-4",
+        resendOtpButton: "#txt-resend-otp"
 
     }
 
@@ -18,8 +19,24 @@ export class OtpScreen extends BaseScreen {
 
     }
 
+    async enterOTPAndVerify(value: string) {
+        await this.enterOtp(value);
+        await this.clickOnVerifyButton();
+    }
+
     async clickOnVerifyButton() {
         await this.click(this.locators.verifyButton);
+    }
+
+    async isOTPFieldEnabled() {
+        return await this.isEnabled(this.locators.otpButton1);
+    }
+
+    async clickOnResendOTPButton() {
+        await this.click(this.locators.resendOtpButton);
+    }
+    async waitUntilOTPTimeExpires() {
+        await this.waitUntilDisabled(this.locators.otpButton1, 40000);
     }
 
 }

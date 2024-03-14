@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.ts"
+    "wdio": "wdio run ./wdio.conf.ts",
+    "single": "wdio run ./wdio.conf.ts --spec test/specs/forgotPassword.test.ts",
+    "test-api": "npx mocha --require ts-node/register test/api/specs/**.test.ts  --timeout 10000"
   },
   "author": "Poojitha",
   "license": "ISC",
@@ -23,5 +25,9 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "wdio-wait-for": "^3.0.11"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "axios": "^1.6.7"
   }
 }

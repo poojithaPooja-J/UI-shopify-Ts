@@ -15,12 +15,17 @@ export class HomeScreen extends BaseScreen {
         closePopUpIcon: "#btn-modal-cross"
     }
     async navigateToProfile() {
-        await this.click(this.locators.profileNavigator);
+        if (await this.isProfileIconVisible()) {
+            await this.click(this.locators.profileNavigator);
+        }
     }
-    async getUserNameInTitle(): Promise<string> {
+    async getUserNameInTitle() {
         return this.getText(this.locators.userName);
     }
 
+    async isProfileIconVisible() {
+        return await this.isDisplayed(this.locators.profileNavigator);
+    }
     async getPopUpMessage() {
         return this.getText(this.locators.popUpMsg);
     }
